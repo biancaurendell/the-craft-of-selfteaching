@@ -1,0 +1,19 @@
+def is_prime(n):
+    """
+    Retrun a boolean value based upon
+    whether the argument n is a prime number.
+    :param n:
+    :return:
+    """
+    if n < 2:
+        return False
+    if n == 2:
+        return True
+    for m in range(2, int(n**0.5)+1):
+        if (n % m) == 0:
+            return False
+    else:
+        return True
+help(is_prime)
+print(is_prime.__doc__)
+is_prime.__doc__
