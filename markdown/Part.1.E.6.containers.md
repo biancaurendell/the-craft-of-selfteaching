@@ -119,7 +119,7 @@ print(c_list, f'has a length of {len(c_list)}.')
 [2**x for x in range(8)]
 ```
 
-这种做法，叫做 **[List Comprehension](https://docs.python.org/3.7/tutorial/datastructures.html#tut-listcomps)**。
+这种做法，叫做 **[List Comprehension](https://docs.python.org/3.7/tutorial/datastructures.html#tut-listcomps)**。(就是所谓的列表推导式)
 
 *Comprehend* 这个词的意思除了 “理解” 之外，还有另外一个意思，就是 “包括、囊括” —— 这样的话，你就大概能理解这种做法为什么被称作 *List Comprehension* 了。中文翻译中，怎么翻译的都有，“列表生成器”、“列表生成式” 等等，都挺好。但是，被翻译成 “列表解析器”，就不太好了，给人的感觉是操作反了……
 
@@ -141,6 +141,38 @@ print(f'... and it has {len(b_list)} even numbers: {b_list}')
 
     a_list comprehends 10 random numbers: [52, 34, 7, 96, 33, 79, 95, 18, 37, 46]
     ... and it has 5 even numbers: [52, 34, 96, 18, 46]
+
+下面是Python 官方文档对列表推导式的描述
+
+Python
+
+```
+[表达式 for 元素 in 可迭代对象]
+```
+
+例如，以下代码使用列表推导式创建一个新的列表，其中包含从 1 到 10 的平方：
+
+```
+>>> squares = [x ** 2 for x in range(1, 11)]
+>>> squares
+[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+```
+
+列表推导式还可以包含条件语句，以便根据元素的值来决定是否将其添加到新列表中。例如，以下代码创建一个新的列表，其中包含所有奇数：
+
+```
+>>> odd_numbers = [x for x in range(1, 11) if x % 2 == 1]
+>>> odd_numbers
+[1, 3, 5, 7, 9]
+```
+
+列表推导式还可以嵌套，以便对多个可迭代对象进行操作。例如，以下代码创建一个新的列表，其中包含所有字母的长度：
+
+```
+>>> lengths = [len(letter) for word in ["hello", "world"] for letter in word]
+>>> lengths
+[5, 5]
+```
 
 ### 列表的操作符
 
@@ -1179,7 +1211,7 @@ for i, t in enumerate(reversed(t)):
 
 ### 同时迭代多个容器
 
-可以在 `zip()` 这个函数的帮助下，同时迭代两个或者两个以上的容器中的元素（这样做的前提是，多个容器中的元素数量最好相同）：
+**可以在 `zip()` 这个函数的帮助下**，同时迭代两个或者两个以上的容器中的元素（这样做的前提是，多个容器中的元素数量最好相同）：
 
 ```python
 chars = 'abcdefghijklmnopqrstuvwxyz'
